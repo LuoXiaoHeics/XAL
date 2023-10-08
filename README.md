@@ -18,8 +18,6 @@ scikit-learn==1.2.2
 openai==0.27.7
 ```
 
-## Generate Explanations
-The scripts can be found in ```chatgpt_query.ipynb``` using jupyter notebook. You need to add your openai key to the codes. 
 
 
 ## Quick Start
@@ -29,5 +27,12 @@ Note that for the codes in this repository, we fix the number of initial data po
 
 If you expect to implement this framework in other text classification tasks, you need to add a new processor in ```glue_utils.py```, and change the number of iterations and data selection in ```run_active_rank.py```.
 
+
+## Generate Explanations
+The scripts can be found in ```chatgpt_query.ipynb``` using jupyter notebook. You need to add your openai key to the codes. 
+
+
+## Datasets
+You can directly download the processed data together with explanations from [link](https://drive.google.com/file/d/14Cr58i9alYv5LvrsVJ4XXEBy_4iL5ivm/view?usp=sharing).
 
 
