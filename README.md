@@ -1,6 +1,10 @@
 # XAL
 XAL: EXplainable Active Learning Makes Classifiers Better Low-resource Learners
 
+
+![frame](https://github.com/LuoXiaoHeics/XAL/assets/48611831/e6f1dfc1-1f6b-413b-b2f6-ae4321766138)
+
+
 ## Requirements
 
 The original project is tested under the following environments:
