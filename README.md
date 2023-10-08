@@ -33,6 +33,15 @@ The scripts can be found in ```chatgpt_query.ipynb``` using jupyter notebook. Yo
 
 
 ## Datasets
+We conduct experiments on six different text classification tasks. :
+1. Natural Language Inference aims to detect whether the meaning of one text is entailed (can be inferred) from the other text; (RTE)
+2. Paraphrase Detection requires identifying whether each sequence pair is paraphrased; (MRPC)
+3. Category Sentiment Classification aims to identify the sentiment (Positive/Negative/Neutral) of a given review to a category of the target such as food and staff; (MAMS)
+4. Stance Detection aims to identify the stance (Favor/Against/Neutral) of a given text to a target; (COVID19)
+5. (Dis)agreement Detection aims to detect the stance (Agree/Disagree/Neutral) of one reply to a comment; (DEBA)
+6. Relevance Classification aims to detect whether a scientific document is relevant to a given topic. (CLEF)
+
 You can directly download the processed data together with explanations from [link](https://drive.google.com/file/d/14Cr58i9alYv5LvrsVJ4XXEBy_4iL5ivm/view?usp=sharing).
+
 
 
