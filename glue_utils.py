@@ -219,7 +219,6 @@ class SentProcessorDEBA(DataProcessor):
         input_examples = []
         # 0- disagree, 1- neutral, 2- agree
         if set_type == 'train':
-            # data = pd.read_csv(data_dir +'/train_reasons.csv')
             data = pd.read_csv(data_dir +'/train_reasons.csv')
             if ids is not None:
                 data = data.iloc[ids]
@@ -257,7 +256,6 @@ class SentProcessorMAMS(DataProcessor):
         label_dic = {'negative':0,'positive':1,'neutral':2}
         input_examples = []
         if set_type == 'train':
-            # data = pd.read_csv(data_dir +'/train_reasons.csv')
             data = pd.read_csv(data_dir +'/train_reasons.csv')
             if ids is not None:
                 data = data.iloc[ids]

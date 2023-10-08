@@ -237,11 +237,11 @@ def train(args, train_dataset,tokenizer, model,iter_id = 0):
             bs = args.train_batch_size
             input_ids = batch[0].unsqueeze(1).expand(bs,3,-1)
             attention_mask = batch[1].unsqueeze(1).expand(bs,3,-1)
-            stance_label = batch[2].unsqueeze(1).expand(bs,3)
+            cls_label = batch[2].unsqueeze(1).expand(bs,3)
 
             inputs = {'input_ids': input_ids,
                           'attention_mask': attention_mask,
-                          'stance_label': stance_label,
+                          'cls_label': cls_label,
                           'labels': batch[3],
                           'ranking_scores':batch[5]}
             loss_s,sft_loss,rank_loss = model(**inputs)
@@ -326,13 +326,13 @@ def load_and_cache_examples(args, tokenizer,mode='train', ids = None):
     
     all_input_ids = torch.tensor([f.input_ids for f in features_wo_r], dtype=torch.long)
     all_input_mask = torch.tensor([f.input_mask for f in features_wo_r], dtype=torch.long)
-    stance_label_ids = torch.tensor([f.label for f in features_wo_r], dtype=torch.long)
+    cls_label_ids = torch.tensor([f.label for f in features_wo_r], dtype=torch.long)
     
     if mode == 'train':
         ids = torch.tensor([f.id for f in features_wo_r], dtype=torch.long)
-        dataset = TensorDataset(all_input_ids, all_input_mask, stance_label_ids, labels_ids,ids,rank_scores)
+        dataset = TensorDataset(all_input_ids, all_input_mask, cls_label_ids, labels_ids,ids,rank_scores)
     else:
-        dataset = TensorDataset(all_input_ids, all_input_mask, stance_label_ids)
+        dataset = TensorDataset(all_input_ids, all_input_mask, cls_label_ids)
     return dataset
 
 
@@ -359,7 +359,7 @@ def evaluate(args, model, tokenizer, mode):
 
             inputs = {'input_ids': batch[0],
                           'attention_mask': batch[1],
-                          'stance_label': batch[2],                  
+                          'cls_label': batch[2],                  
                         }
 
             ids.extend(batch[0])
@@ -392,7 +392,7 @@ def max_entropy_select(args,model,tokenizer,pre_ids):
             
             inputs = {'input_ids': batch[0],
                           'attention_mask': batch[1],
-                          'stance_label': batch[2],                  
+                          'cls_label': batch[2],                  
                         }
             ids.extend(batch[0])
             ls,logits = model(**inputs)
@@ -437,7 +437,7 @@ def max_joint_select(args,model,tokenizer,pre_ids):
         with torch.no_grad():   
             inputs = {'input_ids': batch[0],
                           'attention_mask': batch[1],
-                          'stance_label': batch[2],                  
+                          'cls_label': batch[2],                  
                         }
 
             beam_output = model.generate(

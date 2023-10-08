@@ -240,7 +240,7 @@ def train(args, train_dataset,tokenizer, model,iter_id = 0):
 
             inputs = {'input_ids': batch[0],
                           'attention_mask': batch[1],
-                          'stance_label': batch[2]}
+                          'cls_label': batch[2]}
             l1,logits = model(**inputs)
             l = l1
             if args.n_gpu >1:
@@ -318,12 +318,12 @@ def load_and_cache_examples(args, tokenizer, mode='train', ids = None):
     
     all_input_ids = torch.tensor([f.input_ids for f in features_wo_r], dtype=torch.long)
     all_input_mask = torch.tensor([f.input_mask for f in features_wo_r], dtype=torch.long)
-    stance_label_ids = torch.tensor([f.label for f in features_wo_r], dtype=torch.long)   
+    cls_label_ids = torch.tensor([f.label for f in features_wo_r], dtype=torch.long)   
     if mode == 'train':
         ids = torch.tensor([f.id for f in features_wo_r], dtype=torch.long)
-        dataset = TensorDataset(all_input_ids, all_input_mask, stance_label_ids, labels_ids,ids)
+        dataset = TensorDataset(all_input_ids, all_input_mask, cls_label_ids, labels_ids,ids)
     else:
-        dataset = TensorDataset(all_input_ids, all_input_mask, stance_label_ids)
+        dataset = TensorDataset(all_input_ids, all_input_mask, cls_label_ids)
     return dataset
 
 def compute_metrics_absa(preds, labels):
@@ -349,7 +349,7 @@ def evaluate(args, model, tokenizer, mode):
 
             inputs = {'input_ids': batch[0],
                           'attention_mask': batch[1],
-                          'stance_label': batch[2],                  
+                          'cls_label': batch[2],                  
                         }
             ids.extend(batch[0])
             ls,logits = model(**inputs)
@@ -399,7 +399,7 @@ def least_confidence_select(args,model,tokenizer,pre_ids):
             
             inputs = {'input_ids': batch[0],
                           'attention_mask': batch[1],
-                          'stance_label': batch[2],                  
+                          'cls_label': batch[2],                  
                         }
             ids.extend(batch[0])
             ls,logits = model(**inputs)
@@ -445,7 +445,7 @@ def breaking_ties(args,model,tokenizer,pre_ids):
             
             inputs = {'input_ids': batch[0],
                           'attention_mask': batch[1],
-                          'stance_label': batch[2],                  
+                          'cls_label': batch[2],                  
                         }
             ids.extend(batch[0])
             ls,logits = model(**inputs)
@@ -485,7 +485,7 @@ def bold_select(args,model,tokenizer,pre_ids):
         with torch.no_grad():
             inputs = {'input_ids': batch[0],
                           'attention_mask': batch[1],
-                          'stance_label': batch[2],                  
+                          'cls_label': batch[2],                  
                         }
             for _ in range(k):
                 ls,logits = model(**inputs)
@@ -538,7 +538,7 @@ def max_entropy_select(args,model,tokenizer,pre_ids):
             
             inputs = {'input_ids': batch[0],
                           'attention_mask': batch[1],
-                          'stance_label': batch[2],                  
+                          'cls_label': batch[2],                  
                         }
             ids.extend(batch[0])
             ls,logits = model(**inputs)
@@ -670,7 +670,7 @@ def coreset_select(args,model,tokenizer,pre_ids):
             
             inputs = {'input_ids': batch[0],
                           'attention_mask': batch[1],
-                          'stance_label': batch[2],  
+                          'cls_label': batch[2],  
                           'r_repre': True,                
                         }
             ids.extend(batch[0])
@@ -745,7 +745,7 @@ def CA(args,model,tokenizer,pre_ids):
             
             inputs = {'input_ids': batch[0],
                           'attention_mask': batch[1],
-                          'stance_label': batch[2], 
+                          'cls_label': batch[2], 
                           'r_repre': True       
                         }
 
