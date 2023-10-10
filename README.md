@@ -42,5 +42,16 @@ We conduct experiments on six different text classification tasks. :
 6. Relevance Classification aims to detect whether a scientific document is relevant to a given topic. (CLEF)
 
 
+## Citation
+```
+@misc{luo2023xal,
+      title={XAL: EXplainable Active Learning Makes Classifiers Better Low-resource Learners}, 
+      author={Yun Luo and Zhen Yang and Fandong Meng and Yingjie Li and Fang Guo and Qinglin Qi and Jie Zhou and Yue Zhang},
+      year={2023},
+      eprint={2310.05502},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL}
+}
+```
 
 
