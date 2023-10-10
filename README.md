@@ -41,7 +41,6 @@ We conduct experiments on six different text classification tasks. :
 5. (Dis)agreement Detection aims to detect the stance (Agree/Disagree/Neutral) of one reply to a comment; (DEBA)
 6. Relevance Classification aims to detect whether a scientific document is relevant to a given topic. (CLEF)
 
-You can directly download the processed data together with explanations from [link](https://drive.google.com/file/d/14Cr58i9alYv5LvrsVJ4XXEBy_4iL5ivm/view?usp=sharing).
 
 
 
