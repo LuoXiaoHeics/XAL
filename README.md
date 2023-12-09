@@ -21,7 +21,7 @@ openai==0.27.7
 
 
 ## Quick Start
-To train XAL models or baseline models, you can directly use the bash scripts ```demo_XAL.ipynb``` and ```demo_baseline.ipynb```. 
+To train XAL models or baseline models, you can directly use the bash scripts ```demo_XAL.sh``` and ```demo_baseline.sh```. 
 
 Note that for the codes in this repository, we fix the number of initial data points to 100, and select data in five rounds where 100 unlabeled data are selected. 
 
