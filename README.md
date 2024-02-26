@@ -42,6 +42,9 @@ We conduct experiments on six different text classification tasks. :
 6. Relevance Classification aims to detect whether a scientific document is relevant to a given topic. (CLEF)
 
 
+You can directly download the processed data together with explanatios from [link](https://drive.google.com/file/d/14Cr58i9alYv5LvrsVJ4XXEBy_4iL5ivm/view?usp=sharing).
+
+
 ## Citation
 ```
 @misc{luo2023xal,
